@@ -4,7 +4,6 @@ on:
   pull_request: { branches: [ main ] }
 jobs:
   build_android:
-    needs: analyze_and_test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,7 +19,6 @@ jobs:
           path: build/app/outputs/flutter-apk/app-release.apk
 
   build_web:
-    needs: analyze_and_test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -32,7 +30,6 @@ jobs:
         with: { name: web-release, path: build/web }
 
   build_linux:
-    needs: analyze_and_test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -46,7 +43,6 @@ jobs:
         with: { name: linux-release, path: build/linux/x64/release/bundle }
 
   build_windows:
-    needs: analyze_and_test
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
